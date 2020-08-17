@@ -51,12 +51,29 @@ You will learn about
    - It allows you to generate the building blocks of your of the angular app by just typing command.
    - It makes your development quicker and easier.
    
+   
    > https://cli.angular.io/
   
    To install angular CLI use below command 
    > `npm install -g @angular/cli`
   
+   
+   ![Angular_CLI_1](https://user-images.githubusercontent.com/35020560/90414235-257ba880-e0cd-11ea-9169-09d98ad64299.png)
+
+
+   ![Angular_CLI_2](https://user-images.githubusercontent.com/35020560/90414344-47752b00-e0cd-11ea-9fd9-4e2426e5583c.png)
+
+
+   ![Anular_CLI_3](https://user-images.githubusercontent.com/35020560/90414415-64116300-e0cd-11ea-80bd-9e2595ad7c82.png)
+
+
+   ![Anular_CLI_4](https://user-images.githubusercontent.com/35020560/90414504-7e4b4100-e0cd-11ea-86c7-267ca30f6684.png)
+
   
+   
   
    In the terminal run below command to check npm version
    > `$ ng --version`
+
+
+   ![Angular_CLI_5](https://user-images.githubusercontent.com/35020560/90414570-9622c500-e0cd-11ea-8916-ac7dd03935da.png)
