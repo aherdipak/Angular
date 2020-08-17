@@ -9,6 +9,8 @@ You will learn about
 
 - Introduction
 - Environment Setup
+- Step wise project creation
+- Angular architecture & execution flow
 - 
 
 ## Introduction
@@ -16,7 +18,7 @@ You will learn about
 1. Angular is a framework to build the client side application.
 2. It is especially great for building a single page application where parts of the view get refreshed asynchronous without reloading entire page.
 
-#### why?
+#### Why?
 
 1. By design angular promotes a modular approach and hence application you build have a clear structure.
 3. Making use of components which is a feature of angular we can have a lot of reusable code.
@@ -97,8 +99,12 @@ You will learn about
   
   > `$ng serve`
   
+  ![Screenshot 2020-08-16 at 3 03 52 PM](https://user-images.githubusercontent.com/35020560/90417045-dd5e8500-e0d0-11ea-8e6e-7a9533df050d.png)
+
+
+
   
-## Angulars architecture & execution flow
+## Angular architecture & execution flow
 
 
 
