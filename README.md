@@ -47,9 +47,10 @@ You will learn about
 
 3) Install Angular CLI
   
-   - It is basically a command line interface for angular.
-   - It allows you to generate the building blocks of your of the angular app by just typing command.
-   - It makes your development quicker and easier.
+  - It is basically a command line interface for angular.
+  - It allows you to generate the building blocks of your of the angular app by just typing command.
+  - It makes your development quicker and easier.
+  - 
    
    
    > https://cli.angular.io/
@@ -77,3 +78,27 @@ You will learn about
 
 
    ![Angular_CLI_5](https://user-images.githubusercontent.com/35020560/90414570-9622c500-e0cd-11ea-8916-ac7dd03935da.png)
+   
+
+## Step wise project creation
+   
+1) To create new project run below command in terminal
+
+   > `$ng new hello-world`
+   
+   ![Screenshot 2020-08-16 at 2 58 42 PM](https://user-images.githubusercontent.com/35020560/90415953-75f40580-e0cf-11ea-93d2-bd35c42d1ad2.png)
+
+
+  After successfully project creation go inside of the project folder i.e. `hello-world`
+ 
+  > `$ cd hello-world`
+  
+  Run project using below command
+  
+  > `$ng serve`
+  
+  
+### Angulars architecture & flow of execution
+
+
+   
