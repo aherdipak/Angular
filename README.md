@@ -40,23 +40,23 @@ You will learn about
   
 2) Install NPM
 
-  > https://www.npmjs.com/get-npm
+   > https://www.npmjs.com/get-npm
   
-  In the terminal run below commnad to check npm version
-  > `$ npm -v`
+   In the terminal run below commnad to check npm version
+   > `$ npm -v`
 
 3) Install Angular CLI
   
-  - It is basically a command line interface for angular.
-  - It allows you to generate the building blocks of your of the angular app by just typing command.
-  - It makes your development quicker and easier.
+   - It is basically a command line interface for angular.
+   - It allows you to generate the building blocks of your of the angular app by just typing command.
+   - It makes your development quicker and easier.
    
-  > https://cli.angular.io/
+   > https://cli.angular.io/
   
-  To install angular CLI use below command 
-  > `npm install -g @angular/cli`
+   To install angular CLI use below command 
+   > `npm install -g @angular/cli`
   
   
   
-  In the terminal run below command to check npm version
-  > `$ ng --version`
+   In the terminal run below command to check npm version
+   > `$ ng --version`
