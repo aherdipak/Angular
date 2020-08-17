@@ -82,9 +82,9 @@ You will learn about
 
 ## Step wise project creation
    
-1) To create new project run below command in terminal
+ To create new project run below command in terminal
 
-   > `$ng new hello-world`
+  > `$ng new hello-world`
    
    ![Screenshot 2020-08-16 at 2 58 42 PM](https://user-images.githubusercontent.com/35020560/90415953-75f40580-e0cf-11ea-93d2-bd35c42d1ad2.png)
 
@@ -98,7 +98,12 @@ You will learn about
   > `$ng serve`
   
   
-### Angulars architecture & flow of execution
+## Angulars architecture & execution flow
+
+
+
+
+
 
 
    
