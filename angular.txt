@@ -1,0 +1,372 @@
+what and why?
+-Angular is a framework to build client side application.
+
+-It is specially great for building single page application where parts of the view get refreshed asynchronusly wihtout having to reload entire page.
+
+why?
+
+By design angular promotes modular approch and hence application you build have clear structure.
+
+and making use of componants which is feature of angular we can have a lot of reusable code.
+
+Angular has lot of inbuild capabilities like validation, routing and so on which makes development easier and quicker.
+
+posible to write unit testable code.
+
+Angular is product of google team amd makes use of typescript of microsoft
+
+
+history:
+
+2010  angularjs
+2016  angujar2
+2016dec  angular4
+2017 Nov angular5
+
+
+prerequisites
+
+html,css and js
+basics of typescript
+
+Development Environment
+NOde
+Npm
+Angular CLI
+text editor - vs code
+
+node -v
+nmp -v 
+
+install angular CLI 
+
+its basically command line interface for agular.
+its allows you to generate building blocks of your of angular app by just typing command 
+it makes your developer quicker and easier.
+
+https://cli.angular.io/
+
+to install
+
+npm install -g @angular/cli
+
+to check the version
+ng --version
+
+to crate new project 
+$ng new hello-world
+after successfully project creation go inside of the project folder i.e. hello-world
+$cd hello-world
+
+run the project 
+$ng serve
+
+Angulars architecture & flow of execution:
+
+Modules:
+Angular apps in modular in nature, so an angular application just a collection of a many induvidual modules.
+evry modules represents a feature area in you appl. eg. user module related to application users and admin module related to application admnistrtor.
+
+
+Every angular application has at least one module i.e root module.
+also called as app module.
+
+each module is entern madeup of componants and services 
+componants controlls portion of view on the browser 
+eg. componant_1 - navigation
+componant_2 - sidebar
+componant_3 - main content
+#img1
+again your angular application will have atleast one componant which would be the root componant  of your application this ia called as app componant by convension.
+#img2
+all other componant will be nested inside this componant.
+ #img3
+
+ each componant will have a html template to represent view on the browser and
+ class that controlls the logic of that perticular view
+
+ module will also have services which ia basically class that contents the bssiness logic of your application 
+ In addition to componant and services a module contens a fev more pices of your angula rapplication.
+
+ architecture summary:
+ Angular App - one or more modules
+ Module - one or more componant and services
+ componants - HTML + class
+ services - bussiness logic
+ Modules interact and ultimately render the view in the browser
+
+
+ Some files in project:
+ package.json ; 
+ this file contens the dependecies and devdependencies
+ which is nothing but the libraries and modules that are required
+ for your appliaction to work
+
+ the packages listed here get installed when you fire command $ng new hello-world
+and all the packages get installed in node_modules folder.
+
+we also have some of the script here that can be executed
+$ ng serve command one of them which runs our appliacation
+
+we also execute npm start which internallly execute $ ng serve command
+
+
+src : 
+ conatent the main.ts file which is the entry point to our angular application
+
+ we also have app folder which contens app.module.ts 
+ which is the root module of our application
+
+ app.componant.ts : which is the root componant of our application
+
+
+ when we run the command $ ng serve to start our application 
+ the execution comes till the main.ts file, over here we boostrap or quickstart our app module
+
+
+
+
+#>> Basics of componant
+componant made up of three parts:
+1) template - which represents view
+is create using html and used for your user interface of your application
+
+2) class is nothing but code that supports the view
+and this is create using type script 
+class contens datamembers and methods that can be used the logic of the view
+eg. we have method to show and hide element bases on the value of a propetie
+
+3) metadata: 
+this is the info that angular need to deside if the perticular class is angular componant or just a class
+>metadata is define using a decorator which is a feature in type script
+> a decoratoris a just a function that provides info about the class attach to it
+for componant we use componant decorator
+#img4
+
+app.componant.ts
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'My first';
+}
+
+```
+in above class attached the metadata
+@Component which is componant decorator
+
+this decorator tell the angular hey this is not palne class, This is a componant
+the componant decorator contens the both metadata and the template which represents the view (templateUrl)
+ so as part of the metadata we have selector, templateUrl and styleUrls
+ selector - is basically custom html tag that can be use to represents this componant
+
+ in our case we can see in below file  <app-root></app-root> is used as custom tag
+
+index.html
+ ````
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HelloWorld</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+ ````
+
+so angular renders the AppComponent template  which is comes across this <app-root></app-root> tag
+but what exactly is the template for this componant
+that is define in templateUrl
+the templateUrl points to html file which represents the view for this componant
+
+if you take a look below file
+app.component.html
+
+```
+<span>{{ title }} app is running!</span>
+```
+
+we have {{title}} :this is nothing but the property in our componant class
+
+when we run the application 
+html in app.component.html is replaced in index.html file <app-root></app-root>  tag
+
+filelly we have styleUrls that applyies only for this componant
+
+
+>>> lets create one new componant and add into to appliacation
+to create new componant we are using angular cli
+$ng g c firstComponent
+g - generate
+c - create
+
+bydefault .componant naming convension follows angular
+
+we can see first-component.componant.html file is created for first-component.componant.ts this newly created componant.
+
+here we have created new componant but your appliacation should be avaire of it.
+so in the app.module.ts file we need to import  and then add to declaration array
+```
+import { FirstComponentComponent } from './first-component/first-component.component';
+```
+
+```
+ declarations: [
+    AppComponent,
+    FirstComponentComponent
+  ]
+```
+
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FirstComponentComponent } from './first-component/first-component.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FirstComponentComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+```
+declaration array contens all the componant used by the appliacation.
+
+to include this componant in html we needto just add a custom tag.
+that represents the selector
+
+open first-component.component.ts
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-first-component',
+  templateUrl: './first-component.component.html',
+  styleUrls: ['./first-component.component.css']
+})
+export class FirstComponentComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+```
+here we can see ` selector: 'app-first-component',
+
+now open  app.component.html which represents the view of app.component.ts
+which is the root componant of our appliacation
+
+```
+
+  <!-- Resources -->
+  <h2>{{ title }}</h2>
+  <span>App is running!</span>
+  <p>Here are some links to help you get started:</p>
+
+  <app-first-component></app-first-component>
+
+  
+```
+
+Imp point:
+selector :  there are three ways to specify selectorfor your componant
+1)  specify name of the seletor in decorator and use as custom html tag in html 
+```
+ selector: 'app-first-component',
+```
+html
+```
+<app-first-component></app-first-component>
+```
+2) second way is it to use as a class
+
+```
+ selector: '.app-first-component',
+```
+html
+```
+<div class = "app-first-component"></div>
+```
+3) include selector in square brackets and use it as a atrribute in html
+
+```
+ selector: '[app-first-component]',
+```
+```
+<div app-first-component></div>
+```
+
+#templateUrl: which points to the file that conatents html
+```
+templateUrl: './first-component.component.html',
+```
+But in any componant it is also posible to specity the template inline
+for that we just need to change templateUrl to template
+
+```
+template: '<div>Welcome inline template</div>',
+```
+
+to write inline template code in multiple line we have to use backticks
+
+
+```
+template: `<div>
+                Welcome inline template
+            </div>`,
+```
+
+We can change the styleUrls property which point to the css files
+but just like the html you have the css inline as well 
+so insted of having styleUrls property we have styles property
+again here we can have backticks to have multiple line css
+
+```
+ styleUrls: [`
+   div{
+        color: red;
+   } 
+ `]
+```
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+# visual studio code tutorials - codevolution
+# Typescript - codevolution
+# angular basics - codevolution
+# angular material(design GUI) - codevolution
+
+1) To check node version
+    node -v
+
+2) To check npm version
+    npm -v 
+
