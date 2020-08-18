@@ -10,7 +10,7 @@ You will learn about
 - Introduction
 - Environment Setup
 - Step wise project creation
-- Angular architecture & execution flow : `Architecture_ExecutionFlow.md`
+- Angular architecture & execution flow : [Click Here](https://github.com/aherdipak/Angular/blob/master/Architecture_ExecutionFlow.md)
 - 
 
 ## Introduction
