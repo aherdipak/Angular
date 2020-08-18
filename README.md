@@ -102,6 +102,7 @@ You will learn about
   ![Screenshot 2020-08-16 at 3 03 52 PM](https://user-images.githubusercontent.com/35020560/90417045-dd5e8500-e0d0-11ea-8e6e-7a9533df050d.png)
 
 
+![Screenshot 2020-08-16 at 3 03 57 PM](https://user-images.githubusercontent.com/35020560/90527249-f4fc4300-e18e-11ea-8613-8a5e832409d3.png)
 
   
 ## Angular architecture & execution flow
