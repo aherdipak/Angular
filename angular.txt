@@ -61,6 +61,9 @@ $cd hello-world
 run the project 
 $ng serve
 
+
+
+
 Angulars architecture & flow of execution:
 
 Modules:
