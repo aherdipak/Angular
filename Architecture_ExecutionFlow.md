@@ -1,5 +1,14 @@
 ## Angular architecture & execution flow
 
+###  Overview
+
+You will learn about
+
+- Introduction to modules
+- Introduction to components and templates
+- Introduction to services and dependency injection
+- 
+
 
 ### Introduction to modules:
 
