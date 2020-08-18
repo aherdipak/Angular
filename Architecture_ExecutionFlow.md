@@ -1,0 +1,2 @@
+## Angular architecture & execution flow
+
