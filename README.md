@@ -10,7 +10,7 @@ You will learn about
 - Introduction
 - Environment Setup
 - Step wise project creation
-- Angular architecture & execution flow
+- Angular architecture & execution flow : `Architecture_ExecutionFlow.md`
 - 
 
 ## Introduction
@@ -105,7 +105,7 @@ You will learn about
 ![Screenshot 2020-08-16 at 3 03 57 PM](https://user-images.githubusercontent.com/35020560/90527249-f4fc4300-e18e-11ea-8613-8a5e832409d3.png)
 
   
-## Angular architecture & execution flow
+
 
 
 
