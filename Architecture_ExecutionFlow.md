@@ -263,7 +263,7 @@ export class TestComponent implements OnInit {
  
  ## Important points:
  
- > `selector` :  There are three ways to specify selector for your component.
+  [x] `selector` :  There are three ways to specify selector for your component.
    
   
    1) Specify name of the seletor in decorator and use as custom html tag in html.
@@ -304,9 +304,9 @@ export class TestComponent implements OnInit {
 
       ```
       
- > `templateUrl`: which points to the file that conatents html.
+ [x] `templateUrl`: which points to the file that conatents html.
  
-   - 
+   
   
      #### test.component.ts  
       ```
@@ -329,7 +329,7 @@ export class TestComponent implements OnInit {
 
       ```
 
- - `styleUrls`: We can change the styleUrls property which point to the css files but just like the html you have the css inline as well so insted of having `styleUrls` property we have `styles` property again here we can have backticks to have multiple line css.
+ [x] `styleUrls`: We can change the styleUrls property which point to the css files but just like the html you have the css inline as well so insted of having `styleUrls` property we have `styles` property again here we can have backticks to have multiple line css.
  
       #### test.component.ts 
       ```
