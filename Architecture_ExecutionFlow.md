@@ -329,10 +329,10 @@ export class TestComponent implements OnInit {
 
       ```
 
- [x] `styleUrls`: We can change the styleUrls property which point to the css files but just like the html you have the css inline as well so insted of having `styleUrls` property we have `styles` property again here we can have backticks to have multiple line css.
+ :point_right: `styleUrls`: We can change the styleUrls property which point to the css files but just like the html you have the css inline as well so insted of  having `styleUrls` property we have `styles` property again here we can have backticks to have multiple line css.
  
-      #### test.component.ts 
-      ```
+   #### test.component.ts 
+      ```ruby
          styles: [`
               div{
                     color: red;
