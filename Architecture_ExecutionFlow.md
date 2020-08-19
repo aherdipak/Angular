@@ -304,14 +304,13 @@ export class TestComponent implements OnInit {
 
       ```
       
- [x] `templateUrl`: which points to the file that conatents html.
- 
-   
-  
-     #### test.component.ts  
+ :point_right: `templateUrl`: which points to the file that conatents html.
+
+   #### test.component.ts  
       ```
         templateUrl: './test.component.html',
       ```
+     
    - But in any component it is also posible to specity the template inline for that we just need to change templateUrl to template.
     
      #### test.component.ts 
@@ -321,23 +320,24 @@ export class TestComponent implements OnInit {
       ```
    - To write inline template code in multiple line we have to use backticks
       
-       #### test.component.ts 
+     #### test.component.ts 
       ```
       template: `<div>
                 Welcome inline template
               </div>`,
 
       ```
-
- :point_right: `styleUrls`: We can change the styleUrls property which point to the css files but just like the html you have the css inline as well so insted of  having `styleUrls` property we have `styles` property again here we can have backticks to have multiple line css.
- 
-  #### test.component.ts
-  ```styles: [`
-              div{
-                    color: red;
-              } 
-          `]
-   ```
+  
+   :point_right: `styleUrls`: We can change the styleUrls property which point to the css files but just like the html you have the css inline as well so insted of  having `styleUrls` property we have `styles` property again here we can have backticks to have multiple line css.
+    
+   #### test.component.ts
+    ```
+      styles: [`
+                  div{
+                        color: red;
+                  } 
+              `]
+    ```
     
       
       
