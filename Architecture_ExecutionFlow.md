@@ -21,6 +21,8 @@ You will learn about
 - Each module is made up of `components` and `services`.
 - Components controls portion of view of the browser.
 
+![Screenshot 2020-08-19 at 5 06 46 PM](https://user-images.githubusercontent.com/35020560/90630543-d786b200-e23e-11ea-9b5a-bc18ca110d8b.png)
+
 
 #### metadata
 
