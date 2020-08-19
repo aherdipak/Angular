@@ -333,14 +333,13 @@ export class TestComponent implements OnInit {
  
    #### test.component.ts 
       
-    ```
          styles: [`
               div{
                     color: red;
               } 
         `]
 
-    ```
+    
       
       
  
