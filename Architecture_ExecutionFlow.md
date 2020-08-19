@@ -28,6 +28,41 @@ You will learn about
 
 
 #### metadata
+- module is defined by a class decorated with `@NgModule()`
+- The most important properties are as follows.
+
+> `declarations`: The components that belong to this module.
+
+> `imports`: Other modules whose exported in this module.
+
+> `providers`: Global collection of services, they become accessible in all parts of the app.
+
+> `bootstrap`: The main application view, called the root component. Only the root module should set the bootstrap property.
+
+##### app.module.ts
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+
+
 
 ### Introduction to components and templates:
 
