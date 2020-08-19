@@ -150,7 +150,62 @@ export class AppComponent {
 }
 
 ```
-> >Basics of componant:
+
+#### Basics of componant:
+
+Components made up of three parts:
+
+1) template - Which represents view and created using html and used for your user interface of application.
+2) class - Class is nothing but code that supports the view and this is created using type script. The class contains datamembers and methods that can be used the logic of the view.
+   Eg. We have method to show and hide element bases on the value of a property.
+3) metadata - This is the info that angular need to decide if the particular class is an angular component or just a class.
+  - Metadata is defined using a `decorator` which is a feature in typescript.
+  - A decorator is just a function that provides info about the class attach to it.
+  - For component we use component decorator.
+  - In the above class attached the metadata `@Component` which is component decorator.
+  - This decorator tells the angular hey, this is not plane class, This is a component.
+  - The component decorator contains the both metadata and the template which represents the view (templateUrl).
+  - So as part of the metadata we have `selector`, `templateUrl` and `styleUrls`.
+
+  > `selector`:
+  
+  - selector is basically custom HTML tag that can be used to represent this component.
+  - In our case we can see in below file is used `<app-root></app-root> `as a custom tag.
+  
+  ##### index.html
+  ```
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HelloWorld</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+  </html>
+
+  ```
+ - So angular renders the AppComponent template which is comes across this `<app-root></app-root>` tag. The template for this componant is define in `templateUrl`.
+ - The `templateUrl` points to html (`app.component.html`)file which represents the view for this componant.
+ 
+ #### app.component.html
+ ```
+ ...
+ ...
+ <span>{{ title }} app is running!</span>
+ ...
+ ...
+ 
+ ```
+ - We have `{{title}}` :this is nothing but the property in our componant class.
+ - When we run the application html in `app.component.html` is replaced in `index.html` file with `<app-root></app-root>` tag.
+ - Finelly we have `styleUrls` that applies only to this component 
+
+
 
  
  
