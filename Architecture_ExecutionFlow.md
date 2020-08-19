@@ -263,7 +263,7 @@ export class TestComponent implements OnInit {
  
  ## Important points:
  
-  [x] `selector` :  There are three ways to specify selector for your component.
+  :point_right: `selector` :  There are three ways to specify selector for your component.
    
   
    1) Specify name of the seletor in decorator and use as custom html tag in html.
