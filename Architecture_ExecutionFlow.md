@@ -78,5 +78,82 @@ export class AppModule { }
 
 - Each component will have an html template to represent view on the browser and  class that controls the logic of that particular view.
 
+### Architecture summary:
+ - Angular App - one or more modules
+ - Module - one or more componant and services
+ - componants - HTML + class
+ - services - bussiness logic
+ - Modules interact and ultimately render the view in the browser.
+ 
+### Some files in project:
+
+> `package.json`
+
+- This file contains the dependencies and dev dependencies which is nothing but the libraries and modules that are required
+ for your application to work.
+ 
+- The packages listed here get installed when you fire command `$ng new hello-world`
+and all the packages get installed in `node_modules` folder.
+
+- We also have some of the script bellow that can be executed `$ ng serve` command one of them which runs our applications.
+
+```
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  }
+```
+
+- we also execute `$ npm start` which internallly execute `$ ng serve` command.
+
+> `src` folder:
+
+- Conatent the `main.ts` file which is the entry point to our angular application.
+
+#### main.ts
+```
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+
+```
+
+- When we run the command `$ ng serve` to start our application the execution comes till the `main.ts` file, over here we boostrap or quickstart our app module.
+- We also have an app folder which contains `app.module.ts` which is the root module of our application.
+
+> `app.componant.ts` : which is the root componant of our application.
+
+#### app.componant.ts
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'hello-world';
+}
+
+```
+> >Basics of componant:
+
+ 
+ 
+
 
 
