@@ -261,12 +261,85 @@ export class TestComponent implements OnInit {
 
 
  
+ ## Important points:
  
+ > `selector` :  There are three ways to specify selector for your component.
+   
+  
+   1) Specify name of the seletor in decorator and use as custom html tag in html.
 
+      #### test.component.ts
+      ```
+        selector: 'app-test',
+      ```
+      #### app.component.html
+      ```
+        <span>{{ title }} app is running!</span>
+        <!-- test Component page-->
+        <app-test></app-test>
+        <span>End of the test component data...!</span>
+      ```
+   
+   2) Second way is it to use as a class
 
+       #### test.component.ts
+      ```
+        selector: '.app-test',
+      ```
+      #### app.component.html
+      ```
+       <div class="app-test"></div>
 
+      ```
+      
+  3) Include selector in square brackets and use it as a atrribute in html.
+   
+     #### test.component.ts
+      ```
+        selector: '[app-test]',
+      ```
+      #### app.component.html
+      ```
+       <div app-test></div>
+
+      ```
+      
+ > `templateUrl`: which points to the file that conatents html.
  
+   - 
+  
+     #### test.component.ts  
+      ```
+        templateUrl: './test.component.html',
+      ```
+   - But in any component it is also posible to specity the template inline for that we just need to change templateUrl to template.
+    
+     #### test.component.ts 
+      ```
+       template: '<div>Welcome inline template</div>',
+
+      ```
+   - To write inline template code in multiple line we have to use backticks
+      
+       #### test.component.ts 
+      ```
+      template: `<div>
+                Welcome inline template
+              </div>`,
+
+      ```
+
+ > `styleUrls`: We can change the styleUrls property which point to the css files but just like the html you have the css inline as well so insted of having `styleUrls` property we have `styles` property again here we can have backticks to have multiple line css.
  
+   #### test.component.ts 
+      ```
+         styles: [`
+              div{
+                    color: red;
+              } 
+        `]
 
-
-
+      ```
+      
+      
+ 
