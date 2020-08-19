@@ -203,7 +203,65 @@ Components made up of three parts:
  ```
  - We have `{{title}}` :this is nothing but the property in our componant class.
  - When we run the application html in `app.component.html` is replaced in `index.html` file with `<app-root></app-root>` tag.
- - Finelly we have `styleUrls` that applies only to this component 
+ - Finally we have `styleUrls` that applies only to this component.
+ 
+ ## Create one new component and add into to application:
+ 
+ To create new component we are using angular CLI
+ 
+ > `$ng g c test`
+ 
+ g - generate
+ c - create
+ 
+ ![Screenshot 2020-08-19 at 7 35 00 PM](https://user-images.githubusercontent.com/35020560/90645155-3f46f800-e253-11ea-9958-0785873663ae.png)
+
+
+- Bydefault `.componant` naming convension follows angular.
+- We can see `test.component.html` file is created for `test.componant.ts` this newly created component.
+- Here we have created a new component but your application should be aware of it. So in the `app.module.ts` file we need to import and then add to declaration array.
+
+![Screenshot 2020-08-19 at 7 41 50 PM](https://user-images.githubusercontent.com/35020560/90645929-3145a700-e254-11ea-8d5e-947dcbe2b6d0.png)
+
+- Declaration array contens all the componant used by the appliacation.
+- To include this component in html we need to just add a custom tag that represents the selector.
+
+#### test.component.ts
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
+})
+export class TestComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+```
+
+- Here we have ` selector: 'app-test'` for html custom tag.
+- Now open `app.component.html` which represents the view of `app.component.ts` which is the root componant of our appliacation.
+
+#### app.component.html
+```
+<span>{{ title }} app is running!</span>
+<!-- test Component page-->
+<app-test></app-test>
+<span>End of the test component data...!</span>
+```
+
+![image](https://user-images.githubusercontent.com/35020560/90647893-7965c900-e256-11ea-85b2-15f889d7e1dc.png)
+
+
+ 
+ 
 
 
 
