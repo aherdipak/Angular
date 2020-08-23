@@ -31,14 +31,45 @@ import { Component, OnInit } from '@angular/core';
     <input type="text" [disabled]="false" value="Deepak">
     <input type="text" [disabled] ="true" value="Deepak">
     <input type="text" [disabled] ="isDisabled" value="Deepak">
+    <!-- aleternate property binding -->
     <input type="text" bind-disabled ="isDisabled" value="Deepak">
     
+    <!-- Binding classes in html -->
+      <h2 class="text-success"> Welcome in angular world </h2>
+
+      <h2 [class]="successClass"> Assign dynamic class to HTML element </h2>
+
+      <h2  class="text-special" [class]="successClass" > Using both class attribute and class binding </h2>
+
+      <h2 [class.text-danger]="hasError"> Class Binding using expression </h2>
+
+      <h2 [ngClass]="messageClasses"> ngClass directive: add multiple classes conditionally </h2>
+
   `,
   //styleUrls: ['./test.component.css']
-  styles:[]
+  styles:[`
+      .text-success{
+        color: green;
+      }
+      .text-danger{
+        color: red;
+      }
+      .text-special{
+        font-style: italic;
+      }
+  `]
 })
 export class TestComponent implements OnInit {
 
+  public hasError = true;
+  public isSpecial = true;
+  public messageClasses = {
+    "text-success": !this.hasError,
+    "text-danger": this.hasError,
+    "text-special":this.isSpecial
+  }
+  
+  public successClass = "text-success";
   public isDisabled = false;
   public myId = "testId";
   public name = "Deepak";
