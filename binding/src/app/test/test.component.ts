@@ -18,6 +18,9 @@ import { Component, OnInit } from '@angular/core';
 
     <!--<h2>{{window.location.href}}</h2>-->
     <h2>{{siteUrl}}</h2>
+
+
+    <input type="text" [id] = "myId" value="Deepak">
     
   `,
   //styleUrls: ['./test.component.css']
@@ -25,6 +28,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+  public myId = "testId";
   public name = "Deepak";
   public siteUrl = window.location.href;
 
