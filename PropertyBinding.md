@@ -54,20 +54,24 @@
   
   - There is limitation with interpolation, It can work with string only.
   - eg. Consider disabled attr of input element. By default it is always set to `false`. Sp that input textbox is always enabled.
-  ```<input type="text" disabled value="Deepak">
+  ```
+    <input type="text" disabled value="Deepak">
   ```
   Output : disabled textbox
   
-  ```<input type="text" disabled="false" value="Deepak">
+  ```
+    <input type="text" disabled="false" value="Deepak">
   ```
   Output : still disabled textbox
   - setting the value `disabled="false"` has not effect at all. and because of this `boolean`value attribute needs.
   - true or false interpolation doesn't work. even we write below code it does't work.
-   ```<input type="text" disabled="{{false}}" value="Deepak">
-  ```
+   ```
+      <input type="text" disabled="{{false}}" value="Deepak">
+   ```
   
   - So the solution here is the property binding as bellow.
-  ```<input type="text" [disabled]="false" value="Deepak">
+  ```
+    <input type="text" [disabled]="false" value="Deepak">
     <input type="text" [disabled] ="true" value="Deepak">
   ```
   - For dyanamic value
@@ -106,7 +110,8 @@
 
   ```
   - Alternate syntax for property binding.
-  ```<input type="text" bind-disabled ="isDisabled" value="Deepak">
+  ```
+    <input type="text" bind-disabled ="isDisabled" value="Deepak">
   ```
   
  
