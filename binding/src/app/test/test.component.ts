@@ -21,6 +21,8 @@ import { Component, OnInit } from '@angular/core';
 
 
     <input type="text" [id] = "myId" value="Deepak">
+
+    <input type="text" id = "{{myId}}" value="Deepak">
     
   `,
   //styleUrls: ['./test.component.css']
