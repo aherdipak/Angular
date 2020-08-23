@@ -163,3 +163,63 @@ Binding classes in HTML element.
  - In above code you can see `hasError` and `isSpecial` both properties are `true` so firstly `text-danger` and then `text-special` both classes will apply.
  
  
+# Binding Styles
+Binding style in HTML element.
+
+1) Style is very similar to class binding.
+```
+  <h2 [style.color]="'orange'"> Style Binding </h2>
+```
+2) It is possible to use conditional operator to assign value to css property.
+```
+ <h2 [style.color]="hasError?'green':'red'"> using condiitonal operator for Style Binding </h2>
+```
+3) You can assign component class property during binding.
+```
+ <h2 [style.color]="highLightColor"> Assign component class property for style binding </h2>
+ 
+ export class TestComponent implements OnInit {
+   public highLightColor = "pink";
+ }
+ 
+```
+4) To apply multiple style we need to use `ngStyle` directive.
+```
+ import { Component, OnInit } from '@angular/core';
+ @Component({
+   selector: 'app-test',
+   template:`
+     <h2> Welcome {{name}} </h2>
+
+       <!--Style Binding -->
+       <h2 [style.color]="'orange'"> Style Binding </h2>
+
+       <h2 [style.color]="hasError?'green':'red'"> using condiitonal operator for Style Binding </h2>
+
+       <h2 [style.color]="highLightColor"> Assign component class property for style binding </h2>
+
+       <h2 [ngStyle]="ngStylesProp"> Style binding using ngStyle directive</h2>
+   `,
+   styles:[]
+ })
+ export class TestComponent implements OnInit {
+   public highLightColor = "pink";
+   public ngStylesProp = {
+     color: "blue",
+     fontStyle:"italic"
+   }
+   public hasError = true;
+   constructor() { }
+   ngOnInit(): void {
+   }
+ }
+
+```
+- Now if you look at browser you can see text with blue color with italic style.
+
+![image](https://user-images.githubusercontent.com/35020560/90982309-fa3d0180-e583-11ea-886d-db6fd8fdebed.png)
+
+
+
+ 
+ 
