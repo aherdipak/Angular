@@ -21,8 +21,17 @@ import { Component, OnInit } from '@angular/core';
 
 
     <input type="text" [id] = "myId" value="Deepak">
-
+    <br/>
     <input type="text" id = "{{myId}}" value="Deepak">
+    <br/><br/>
+    <input type="text" disabled value="Deepak">
+    <input type="text" disabled="false" value="Deepak">
+    <input type="text" disabled="{{false}}" value="Deepak">
+    <br/><br/>
+    <input type="text" [disabled]="false" value="Deepak">
+    <input type="text" [disabled] ="true" value="Deepak">
+    <input type="text" [disabled] ="isDisabled" value="Deepak">
+    <input type="text" bind-disabled ="isDisabled" value="Deepak">
     
   `,
   //styleUrls: ['./test.component.css']
@@ -30,6 +39,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+  public isDisabled = false;
   public myId = "testId";
   public name = "Deepak";
   public siteUrl = window.location.href;
