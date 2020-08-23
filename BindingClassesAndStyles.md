@@ -26,7 +26,7 @@ Binding classes in HTML element.
         `]
       })
   ```
-  - To assign class dynamically to the HTML element we are gona write below code.
+  - To assign class dynamically to the HTML element we have to write below code.
   ```
       import { Component, OnInit } from '@angular/core';
 
