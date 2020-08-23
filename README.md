@@ -11,7 +11,7 @@ You will learn about
 - Environment Setup
 - Step wise project creation
 - Angular architecture & execution flow : [Click Here](https://github.com/aherdipak/Angular/blob/master/Architecture_ExecutionFlow.md)
-- Angular Interpolation: [Click Here]()
+- Angular Interpolation: [Click Here](https://github.com/aherdipak/Angular/blob/master/AngularInterpolation.md)
 
 ## Introduction
 
