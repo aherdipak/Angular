@@ -107,6 +107,15 @@ export class EventComponent implements OnInit {
 <button (click)="message= 'Welcome Deepak'"> code in HTML with event</button>
 ```
 
+# Template Reference Variables
+
+- When there is a user interaction we might want some data to flow from the view to the class to perform an operation.
+- *Eg.* We may required the value in textbox field to perform some validation.
+- So to easily access DOM element and their properties angular provides us web template reference variable.
+
+![image](https://user-images.githubusercontent.com/35020560/91067498-a0563d80-e650-11ea-980f-9edc94f11aa8.png)
+
+
 
 
  
