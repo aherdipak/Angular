@@ -64,8 +64,8 @@ export class EventComponent implements OnInit {
 ![image](https://user-images.githubusercontent.com/35020560/91062316-2ae76e80-e64a-11ea-92c2-250c72eb206d.png)
 
 - Sometime we also want information about click event itself.
-- *Eg.* Information about click event. for that you have to simply sent parameter `$event`
-- `$event` this is the special varible for angular, This will give you all the information of DOM event that was raised.
+- *Eg.* Information about click event. for that you have to simply send parameter `$event`
+- `$event` this is the special variable of angular, This will give you all the information of DOM event that was raised.
 ```
   import { Component, OnInit } from '@angular/core';
   @Component({
@@ -97,10 +97,10 @@ export class EventComponent implements OnInit {
   }
 
 ```
-- Now if you go to the browser button and click event button and look at the console it will show you all the information about that raised event.
+- Now if you go to the browser and click event button and look at the console it will show you all the information about raised event.
 - If you want to know the event, You can get this using `event.type`.
 - Sometime while working with event binding a separate handler may not be necessary
-- *Eg.* Above method body code is very small, so instead of writing method in the method we can write this code in html itself.
+- *Eg.* In above method body code is very small, so instead of writing method we can write this code in html itself.
 ```
 <button (click)="message= 'Welcome Deepak'"> code in HTML with event</button>
 ```
