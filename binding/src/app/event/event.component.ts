@@ -10,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
     <button (click)="onClickEvent($event)"> event</button>
 
     <button (click)="message= 'Welcome Deepak'"> code in HTML with event</button>
+    <br/><br/><br/>
+    <input #myID type="text">
+    <button (click)="logMessage(myID.value)"> log</button>
+
   `,
   styleUrls: ['./event.component.css']
 })
@@ -26,6 +30,9 @@ export class EventComponent implements OnInit {
     console.log(event);
   }
 
+  logMessage(value){
+    console.log(value);
+  }
   constructor() { }
 
   ngOnInit(): void {
