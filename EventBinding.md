@@ -98,6 +98,8 @@ export class EventComponent implements OnInit {
 
 ```
 - Now if you go to the browser and click event button and look at the console it will show you all the information about raised event.
+![image](https://user-images.githubusercontent.com/35020560/91063397-9251ee00-e64b-11ea-82e3-410fe721b65e.png)
+
 - If you want to know the event, You can get this using `event.type`.
 - Sometime while working with event binding a separate handler may not be necessary
 - *Eg.* In above method body code is very small, so instead of writing method we can write this code in html itself.
