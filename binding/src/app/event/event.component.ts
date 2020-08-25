@@ -13,12 +13,16 @@ import { Component, OnInit } from '@angular/core';
     <br/><br/><br/>
     <input #myID type="text">
     <button (click)="logMessage(myID.value)"> log</button>
-
+    <br/><br/><br/>
+    <!-- Two way Binding-->
+    <input [(ngModel)] = "twoWayBinding" type="text">
+    {{twoWayBinding}}
   `,
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
 
+  public twoWayBinding = "";
   public name = "in event binding";
   public message = "";
   onClick(){
