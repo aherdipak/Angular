@@ -12,7 +12,15 @@ You will learn about
 - Step wise project creation
 - Angular architecture & execution flow : [Click Here](https://github.com/aherdipak/Angular/blob/master/Architecture_ExecutionFlow.md)
 - Angular Interpolation: [Click Here](https://github.com/aherdipak/Angular/blob/master/AngularInterpolation.md)
-- Classes and Styles Binding : [Click Here](https://github.com/aherdipak/Angular/blob/master/BindingClassesAndStyles.md)
+- Binding : [Click Here](https://github.com/aherdipak/Angular/blob/master/Binding.md)
+  1) Property Binding
+  2) Binding Classes
+  3) Binding Styles
+  4) Binding Of Event's
+  5) Template Reference Variables
+  6) Two Way Binding
+- 
+
 
 ## Introduction
 
