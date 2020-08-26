@@ -19,7 +19,11 @@ You will learn about
   - Binding Of Event's
   - Template Reference Variables
   - Two Way Binding
-- 
+- Structural Directives : [Click Here](https://github.com/aherdipak/Angular/blob/master/StructuralDirectives.md)
+  - `ngIf`
+  - `ngSwitch`
+  - `ngFor`
+  -
 
 
 ## Introduction
