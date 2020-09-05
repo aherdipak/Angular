@@ -103,7 +103,76 @@
 
 ```
 
+## ngFor directive:
 
+- `ngFor` directive help us to render list of element.
+- `ngFor` directive is like for loop in any programming language.
+
+
+```
+ import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template:`
+          <h2>----- Another syntax for ngFor -----</h2>
+          <div *ngFor="let color of colors">
+            <h4>{{color}}</h4>
+          </div>
+
+  `,
+  styleUrls: ['./test.component.css']
+})
+export class TestComponent implements OnInit {
+  public colors = ["red","yellow","blue","green"];
+  constructor() { }
+  }
+}
+
+```
+- If you want to get index then follow below code
+
+```
+ <h4>----- ngFor get Index -----</h4>
+<div *ngFor="let color of colors; index as i">
+  <h4>{{i}} {{color}}</h4>
+</div>
+```
+- Keep in mind index start with zero.
+- Just like index we also some more keywords to use specific to the ngFor directive
+1) Find first element in array.
+
+```
+ <div *ngFor="let color of colors; first as f">
+  <h4>{{f}} {{color}}</h4>
+</div>
+```
+
+2) Find last element in array.
+
+```
+ <div *ngFor="let color of colors; last as l">
+    <h4>{{l}} {{color}}</h4>
+  </div>
+```
+
+3) Find odd element in array.
+
+```
+ <div *ngFor="let color of colors; odd as o">
+  <h4>{{o}} {{color}}</h4>
+</div>
+```
+
+4) Find even element in array.
+
+```
+<div *ngFor="let color of colors; even as e">
+    <h4>{{e}} {{color}}</h4>
+  </div>
+```
+
+![image](https://user-images.githubusercontent.com/35020560/92300234-fdb68c80-ef76-11ea-9079-4c76d9235ee5.png)
 
 
 
