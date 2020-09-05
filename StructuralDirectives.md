@@ -70,5 +70,40 @@
 ```
 - Here, If `displayName` is true then render `thenBlock` else render `elseBlock`
 
+## ngSwitch directive:
+
+- `ngSwitch` directive is similar to switch statement in any language.
+- Difference is that you render HTML instead of executing some logic.
+
+```
+  import { Component, OnInit } from '@angular/core';
+
+  @Component({
+    selector: 'app-test',
+    template:`
+            <h2>----- Another syntax for ngSwitch -----</h2>
+            <div [ngSwitch]="colour">
+                <div *ngSwitchCase="'red'"> Red Colour </div>
+                <div *ngSwitchCase="'blue'"> blue Colour </div>
+                <div *ngSwitchCase="'yellow'"> yellow Colour </div>
+                <div *ngSwitchDefault> Default Colour </div>
+            </div>
+
+    `,
+    styleUrls: ['./test.component.css']
+  })
+  export class TestComponent implements OnInit {
+
+    public colour = "blue";
+
+    constructor() { }
+    ngOnInit(): void {
+    }
+  }
+
+```
+
+
+
 
 
