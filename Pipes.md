@@ -6,6 +6,11 @@
 1) lowecase - It converts us to string to its lowercase representation.
 2) uppercase
 3) titlecase - first leter if every word will be capitalise.
+```
+<h2>{{name | lowercase}}</h2>
+<h2>{{name | uppercase}}</h2>
+<h2>{{message | titlecase}}</h2>
+```
 4) slice - Thia takes an argument
 ```
   <h2>{{name | slice:3}}</h2>
