@@ -152,4 +152,7 @@ export class AppComponent {
 }
 
 ```
+- If you go to the browser and when you click on button you will see the msg "Hey Angular".
+
+![image](https://user-images.githubusercontent.com/35020560/92321206-d4186680-f045-11ea-862d-486d8ddddb91.png)
 
