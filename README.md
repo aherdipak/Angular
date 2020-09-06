@@ -23,7 +23,7 @@ You will learn about
   - `ngIf`
   - `ngSwitch`
   - `ngFor`
-  -
+- Component Interaction : [Click Here](https://github.com/aherdipak/Angular/blob/master/component-interaction.md)
 
 
 ## Introduction
