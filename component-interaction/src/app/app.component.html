@@ -6,5 +6,6 @@
   </style>
 
 <h2>Welcome in {{ title }}</h2>
-<app-test [parentData]="name"></app-test>
+<h2>{{message}}</h2>
+<app-test (childEvent)="message=$event" [parentData]="name"></app-test>
 
