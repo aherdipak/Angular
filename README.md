@@ -24,6 +24,7 @@ You will learn about
   - `ngSwitch`
   - `ngFor`
 - Component Interaction : [Click Here](https://github.com/aherdipak/Angular/blob/master/component-interaction.md)
+- Pipes : [Click Here](https://github.com/aherdipak/Angular/blob/master/Pipes.md)
 
 
 ## Introduction
