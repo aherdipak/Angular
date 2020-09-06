@@ -76,3 +76,80 @@ export class TestComponent implements OnInit {
 @Input('parentData') public name;
 ```
 
+3) Sending data from child component to parent component.
+
+- This is slightly different than sending data from parent comp to child comp. Because in parent comp html we have the child comp selector so we can easily bond the data bellow way.
+```
+<app-test [parentData]="name"></app-test>
+```
+- But in child comp you do not have the parent comp selector so you can not send data same way. To send data from child comp to parent comp is using events.
+
+##### /test.component.ts
+```
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: `
+      <h3>Test Component</h3>
+      <!--<h3>{{"Hello "+parentData}}</h3>-->
+      <h3>{{"Hello "+name}}</h3>
+
+      <button (click) = "fireEvent()">Send Event</button>
+  `,
+  styles: [`
+      h2, h3 {text-align: center;}
+  `]
+})
+export class TestComponent implements OnInit {
+
+  //@Input() public parentData;
+  @Input('parentData') public name;
+
+  @Output() public childEvent = new EventEmitter();
+
+  fireEvent(){
+    this.childEvent.emit("Hey Angular");
+  }
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+}
+```
+
+4) Capture data in the parent component.
+
+##### /app.component.html
+```
+<style>
+  h2 {text-align: center;}
+  h3 {text-align: center;}
+  p {text-align: center;}
+  div {text-align: center;}
+  </style>
+
+<h2>Welcome in {{ title }}</h2>
+<h2>{{message}}</h2>
+<app-test (childEvent)="message=$event" [parentData]="name"></app-test>
+
+```
+
+##### /app.component.ts
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'component-interaction';
+  public name = "Deepak";
+  public message = "";
+}
+
+```
+
