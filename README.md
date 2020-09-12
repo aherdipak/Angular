@@ -25,6 +25,7 @@ You will learn about
   - `ngFor`
 - Component Interaction : [Click Here](https://github.com/aherdipak/Angular/blob/master/component-interaction.md)
 - Pipes : [Click Here](https://github.com/aherdipak/Angular/blob/master/Pipes.md)
+- Services : [Click Here](https://github.com/aherdipak/Angular/blob/master/services.md)
 
 
 ## Introduction
