@@ -208,16 +208,92 @@ contructor(){
 - any time dependency change the class needs to change as well.
 #### This code is not sutable for testing, any time we initiate new car you get same engine & same tires. What if i want to test our code wiht petrol engine with different tires.
 
-### 2) DI asa design pattern
+### 2) DI as a design pattern
 
 - DI is a coding patter in which a class receives it's dependencies from external sources rather than creating them itself.
 
-without DI | With DI 
---- | --- 
+#### without DI 
 ```
-ssss
-```| ```
-www
+class Car{
+engine;
+tires;
+contructor(){
+  this.engine = new Engine();
+  this.tires = new Tires();
+  }
+}
 ```
 
+#### With DI 
+```
+class Car{
+engine;
+tires;
+contructor(engine, tires){
+  this.engine = engine;
+  this.tires = tires;
+  }
+}
+```
+
+- You can see car class does't create dependencies anymore. It just consumes them.
+
+```
+var engine = new Engine();
+var tires = new Tires();
+var car = new Car(engine,tires);
+```
+- The creation of those dependencies is external to this class.
+
+```
+var engine = new Engine(para);
+var tires = new Tires(para);
+var car = new Car(engine,tires);
+
+```
+- Now engine can accept para. but still car accept that without a problem.
+- Our code is much more flexible now even if we made changes in dependencies the car class we made intact.
+
+- Now the anathor problem is, We create car by passing dependencies as para. But we as the developer we have to crete dependencies first.
+- Let's say we have 20 dependecies So before creating car we have to create all 20 dependecies before passing them as parameter.
+- What if those dependecies internally have dependecies then we first need to create those dependecies. So as the no. of dependeciesgrow it's become realy deficult to manage the code.
+- Look at below example.
+```
+var a = new Dependency();
+var b = new Dependency();
+var c = new Dependency();
+...
+...
+var z = new Dependency();
+
+var car = new Car(a,b,c,....z);
+```
+- If dependency `c` is depends on dependency `b`. We will have to create dependency `b` before creating dependency `c` and car.
+
+```
+var a = new Dependency();
+var b = new Dependency();
+var c = new Dependency(b); // dependent
+...
+...
+var z = new Dependency();
+
+var car = new Car(a,b,c,....z);
+```
+- This becomes extrimely deficult for our developer. and this is where angular `dependency injection` framework comes into the picture.
+
+### 2) DI Framework
+
+- The DI framework has something called an `injector` where you registor all your dependencies.
+- Injector basically like containar for all the dependecies lie engine, car, a,b, c, .....
+- If you want a car, you ask for a car and injector provides car for you.
+- The framework manage all the dependencies so that you don't have to keep track on it.
+
+# How to use service in angular?
+
+1) Create a service eg. EmployeeList, EmployeeDetail
+2) Register service with injector.
+3) Declare service as a dependency.
+
+![image](https://user-images.githubusercontent.com/35020560/93022170-45878480-f605-11ea-965a-dbda147894cf.png)
 
