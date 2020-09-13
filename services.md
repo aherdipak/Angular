@@ -120,3 +120,100 @@ export class EmployeeDetailComponent implements OnInit {
 - In angular service file naming convension is `.service.ts`. eg. `employee.service.ts`
 - How to use services in angular :  `Dependency Injection`.
 
+# Dependency Injection in Angular
+- In this topic we will learn below three points.
+  1) Code without DI - there drowbacks.
+  2) DI as a design pattern : How to overcome drowbacks.
+  3) DI as a framework
+
+### 1) Code without DI
+- let's assume below three classes.
+
+#### /Car
+```
+class Car{
+engine;
+tires;
+contructor(){
+  this.engine = new Engine();
+  this.tires = new Tires();
+  }
+}
+
+```
+#### /Engine
+```
+class Engine{
+contructor(){}
+}
+
+```
+#### /Tires
+```
+class Tires{
+contructor(){}
+}
+
+```
+- For simplicity let's assume we need only an engine & tires to build a car.
+- A car has two dpendencies : engine & tires.
+- In the car class contructor itself creates copies of egine and tires. So when we instantiats new car the contructor initiats new engine & new tires.
+- But there is a problem with this code.
+- let's assume engine contructor consumes para. ie.(fuel: petrol/diesel).
+
+#### /Engine
+```
+class Engine{
+contructor(fuel){}
+}
+
+```
+- When we change the engine our car is broken. To reaper car class we need to pass para. to the engine contructor.
+
+#### /Car
+```
+class Car{
+engine;
+tires;
+contructor(){
+  this.engine = new Engine(fuel);
+  this.tires = new Tires();
+  }
+}
+
+```
+- similarly tier class contructor accepts para. again car class needs to be fixed.
+
+#### /Tires
+```
+class Tires{
+contructor(para){}
+}
+
+```
+
+#### /Car
+```
+class Car{
+engine;
+tires;
+contructor(){
+  this.engine = new Engine(fuel);
+  this.tires = new Tires(para);
+  }
+}
+
+```
+##### So our first drowback is our code is not flexible.
+- any time dependency change the class needs to change as well.
+#### This code is not sutable for testing, any time we initiate new car you get same engine & same tires. What if i want to test our code wiht petrol engine with different tires.
+
+### 2) DI asa design pattern
+
+- DI is a coding patter in which a class receives it's dependencies from external sources rather than creating them itself.
+
+Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+
+
