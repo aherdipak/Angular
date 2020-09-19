@@ -26,6 +26,9 @@ You will learn about
 - Component Interaction : [Click Here](https://github.com/aherdipak/Angular/blob/master/component-interaction.md)
 - Pipes : [Click Here](https://github.com/aherdipak/Angular/blob/master/Pipes.md)
 - Services : [Click Here](https://github.com/aherdipak/Angular/blob/master/services.md)
+  - Dependency Injection
+  - How to use services
+- 
 
 
 ## Introduction
