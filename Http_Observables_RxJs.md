@@ -27,3 +27,24 @@
 - In our employeeservice application, The newspaper company is like employeeService as shown in below image.
 
 ![image](https://user-images.githubusercontent.com/35020560/93670185-08b10700-fab7-11ea-9ddd-39dc10f9984f.png)
+
+- The source of is nothing but the DB or webApi or webservice.
+- The employeeServie makes request of DB with the http `GET` call as a response we get back an observable.
+- But this time data not in the format which we use in our application. So once we receive observable we need to convert it into the eployees array.
+- After conversion the data ready to br provide to the component in our application.
+- We provide employee data to the component who have subscribe to that employeeService.
+- After getting data in component it is complitly depends on them, how to use of that data.
+
+#### Observable:
+- Observable is nothing but sequense of items that arrive asynchronusly over time.
+- But http call is a single item instead of sequense of items and that single item is nothing but http response.
+
+#### Http, Observables:
+1) Http get request from emplyeeService.
+2) Subscribe observable to emplist and empdetail.
+3) Assign to employee array to a local variable.
+
+#### RxJs:
+- RxJs is a library that enables us to work with observable in angular application.
+- It is reactive extesion for javascript and it is no where related to react library from facebook.
+- It is just external library to work with observable.
