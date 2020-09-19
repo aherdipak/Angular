@@ -417,4 +417,102 @@ export class EmployeeDetailComponent implements OnInit {
 ![image](https://user-images.githubusercontent.com/35020560/93661518-01b5d480-fa76-11ea-99f1-b5e983372b5b.png)
 
 
-- 
+- Now to register service we use providers metadata.
+- In the app module include emplyee service in the providers array.
+
+#### / app.module.ts
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { EmployeeService } from './employee.service';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    EmployeeListComponent,
+    EmployeeDetailComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [EmployeeService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+- Now we have register our service in app module using providers metadata.
+
+#### 3) Declare service as a dependency
+
+- Dependency is specified in the constructor lets change employee-list.component.ts
+
+#### / employee-list.comopnent.ts
+```
+import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../employee.service';
+
+@Component({
+  selector: 'employee-list',
+  template: `
+    <h2>Employee List</h2>
+    <ul *ngFor="let emp of employees">
+      <li>{{emp.name}}</li>
+    </ul>
+  `,
+  styles: [`
+  
+  `]
+})
+export class EmployeeListComponent implements OnInit {
+
+  /*public employees =[
+    {"id": 1, "name": "Bruce", "age" : 30},
+    {"id": 2, "name": "Andriw", "age" : 46},
+    {"id": 3, "name": "Nicole", "age" : 35},
+    {"id": 4, "name": "Ketty", "age" : 26},
+  ];*/
+
+  public employees =[];
+
+
+  constructor(private _employeeService : EmployeeService) { }
+ // Now we have a local variable that gives us instance of EmployeeService
+ // Need to make use of EmployeeService instance and fetch the data. as bellow
+// ngOnInit() gets called when component has been initialized
+  ngOnInit(): void {
+    this.employees = this._employeeService.getEmployees();
+  }
+
+}
+
+```
+- Let's do same thing in employee-detail.comopnent.ts
+
+#### / employee-detail.comopnent.ts 
+```
+ constructor(private _employeeService : EmployeeService) { }
+ // Now we have a local variable that gives us instance of EmployeeService
+ // Need to make use of EmployeeService instance and fetch the data. as bellow
+// ngOnInit() gets called when component has been initialized
+  ngOnInit(): void {
+    this.employees = this._employeeService.getEmployees();
+  }
+```
+- Lets look at the browser, we still have Emplyee list and Employee Detail list, But this time are doing it must more efficiently.
+
+![image](https://user-images.githubusercontent.com/35020560/93661863-f6b07380-fa78-11ea-81e3-c5cfd31d6016.png)
+
+
+### `@Injectable()` decorator: Why is it required?
+
+- `@Injectable()` decorator tells angular this service might itself have injected dependencies.
+- If you want to inject one service into anathor service then `@Injectable()` decorator must.
+- If you remove `@Injectable()` decorator from the service it become simple typescript class. Its mendatory because angular consider it might have dependencies in future.
+
