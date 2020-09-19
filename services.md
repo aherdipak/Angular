@@ -404,10 +404,17 @@ export class EmployeeDetailComponent implements OnInit {
 - There are multiple phases where you can required service but the place you register is important, Because angualar has hirarchical DI system.
 - Consider below application:
 
+![image](https://user-images.githubusercontent.com/35020560/93661343-a8997100-fa74-11ea-9189-3940c32ec4d0.png)
+
 - Here is how angulars DI system will work?
 - If you register in employeeList component then the service can be use by the employeeList and its childs only. No other component not even emplyeeDetail component can use it. So this is not a good choise.
+
+![image](https://user-images.githubusercontent.com/35020560/93661419-48ef9580-fa75-11ea-9c56-f92c43a9689e.png)
+
+
 - Now if you register with appComponent then appComponent and all its children can make use of the service. this works fine. But each module is a usually feature area in your application and might grow in future. So it is better to register service at the module level.
 
+![image](https://user-images.githubusercontent.com/35020560/93661518-01b5d480-fa76-11ea-99f1-b5e983372b5b.png)
 
 
 - 
