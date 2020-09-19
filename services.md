@@ -292,8 +292,122 @@ var car = new Car(a,b,c,....z);
 # How to use service in angular?
 
 1) Create a service eg. EmployeeList, EmployeeDetail
-2) Register service with injector.
+2) Register service with injector
 3) Declare service as a dependency.
 
 ![image](https://user-images.githubusercontent.com/35020560/93022170-45878480-f605-11ea-965a-dbda147894cf.png)
 
+#### 1) Create a service
+- To generate basic service template we use angular CLI.
+- In the integrated terminal within the project folder run the below command.
+  > `$ ng g s employee`
+  
+  ![image](https://user-images.githubusercontent.com/35020560/93660878-f14f2b00-fa70-11ea-9704-70a9a2ae3901.png)
+
+- Let's create `getEmployees()` method in service which return list of employee beans.
+#### /employee.service.ts
+```
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  constructor() { }
+
+  getEmployees(){
+    return[
+      {"id": 1, "name": "Bruce", "age" : 30},
+      {"id": 2, "name": "Andriw", "age" : 46},
+      {"id": 3, "name": "Nicole", "age" : 35},
+      {"id": 4, "name": "Ketty", "age" : 26}
+    ];
+  }
+}
+
+```
+
+- Make empty employees array in employee-list.component.ts
+#### /employee-list.component.ts
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'employee-list',
+  template: `
+    <h2>Employee List</h2>
+    <ul *ngFor="let emp of employees">
+      <li>{{emp.name}}</li>
+    </ul>
+  `,
+  styles: [`
+  
+  `]
+})
+export class EmployeeListComponent implements OnInit {
+
+  /*public employees =[
+    {"id": 1, "name": "Bruce", "age" : 30},
+    {"id": 2, "name": "Andriw", "age" : 46},
+    {"id": 3, "name": "Nicole", "age" : 35},
+    {"id": 4, "name": "Ketty", "age" : 26},
+  ];*/
+
+  public employees =[];
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+}
+
+```
+
+- Make empty employees array in employee-detail.component.ts
+
+#### /employee-detail.component.ts
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'employee-detail',
+  template: `
+      <h2>Employee Detail</h2>
+      <ul *ngFor="let emp of employees">
+        <li>{{emp.id}}. {{emp.name}} - {{emp.age}}</li>
+      </ul>
+  `,
+  styleUrls: ['./employee-detail.component.css']
+})
+export class EmployeeDetailComponent implements OnInit {
+
+  /*public employees =[
+    {"id": 1, "name": "Bruce", "age" : 30},
+    {"id": 2, "name": "Andriw", "age" : 46},
+    {"id": 3, "name": "Nicole", "age" : 35},
+    {"id": 4, "name": "Ketty", "age" : 26},
+  ];*/
+
+  public employees =[];
+  
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+}
+
+```
+- Now our service is ready, lets register it with injector.
+
+#### 1) Register service with injector
+- If you dont register service with injector, It just a class according to angular.
+- There are multiple phases where you can required service but the place you register is important, Because angualar has hirarchical DI system.
+- Consider below application:
+
+- Here is how angulars DI system will work?
+- If you register in employeeList component then the service can be use by the employeeList and its childs only. No other component not even emplyeeDetail component can use it. So this is not a good choise.
+- Now if you register with appComponent then appComponent and all its children can make use of the service. this works fine. But each module is a usually feature area in your application and might grow in future. So it is better to register service at the module level.
+
+
+
+- 
