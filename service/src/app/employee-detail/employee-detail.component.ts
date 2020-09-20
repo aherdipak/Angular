@@ -27,7 +27,8 @@ export class EmployeeDetailComponent implements OnInit {
  // Need to make use of EmployeeService instance and fetch the data. as bellow
 // ngOnInit() gets called when component has been initialized
   ngOnInit(): void {
-    this.employees = this._employeeService.getEmployees();
+    this._employeeService.getEmployees()
+        .subscribe(data => this.employees = data);
   }
 
 }
