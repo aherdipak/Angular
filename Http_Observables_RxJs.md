@@ -149,10 +149,34 @@ export class EmployeeService {
 
 ##### / employees-list.component.ts
 ```
+import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../employee.service';
+
+@Component({
+  selector: 'employee-list',
+  template: `
+    <h2>Employee List</h2>
+    <ul *ngFor="let emp of employees">
+      <li>{{emp.name}}</li>
+    </ul>
+  `,
+  styles: [`
+  
+  `]
+})
+export class EmployeeListComponent implements OnInit {
+
+  public employees =[];
+
+  constructor(private _employeeService : EmployeeService) { }
+ 
 ngOnInit(): void {
-    this._employeeService.getEmployees()
-        .subscribe(data => this.employees = data);
-  }
+  this._employeeService.getEmployees()
+      .subscribe(data => this.employees = data);
+}
+
+}
+
 ```
 
 ![image](https://user-images.githubusercontent.com/35020560/93710096-96e1c780-fb61-11ea-8460-fb69c5be89ad.png)
