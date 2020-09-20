@@ -41,10 +41,121 @@
 
 #### Http, Observables:
 1) Http get request from emplyeeService.
-2) Subscribe observable to emplist and empdetail.
-3) Assign to employee array to a local variable.
+2) Receive the observable and cast it into an employee array.
+3) Subscribe observable to emplist and empdetail.
+4) Assign to employee array to a local variable.
 
 #### RxJs:
 - RxJs is a library that enables us to work with observable in angular application.
 - It is reactive extesion for javascript and it is no where related to react library from facebook.
 - It is just external library to work with observable.
+
+# Get data from a server
+
+#### 1) Enable HTTP services
+- Make HttpClient available everywhere in the app in two steps. First, add it to the root AppModule by importing it.
+
+##### / app.module.ts
+```
+import { HttpClientModule } from '@angular/common/http';
+
+```
+- Next, still in the AppModule, add HttpClient to the imports array.
+
+##### / app.module.ts
+```
+@NgModule({
+  imports: [
+    HttpClientModule
+  ]
+})
+
+```
+
+##### / employee.service.ts
+```
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  private _url: string = "/assets/data/employees.json";
+  
+  constructor(private http: HttpClient) { }
+
+  getEmployees(){
+    return this.http.get(this._url);
+  }
+}
+
+```
+##### / employees.json
+```
+[
+    {"id": 1, "name": "Bruce", "age" : 30},
+    {"id": 2, "name": "Andriw", "age" : 46},
+    {"id": 3, "name": "Nicole", "age" : 35},
+    {"id": 4, "name": "Ketty", "age" : 26}
+  ]
+```
+
+#### 2) Receive the observable and cast it into an employee array.
+
+- If you mouse hover on get method you can see that it returns observables.
+![image](https://user-images.githubusercontent.com/35020560/93709718-2ab19480-fb5e-11ea-8515-99b07abc01a6.png)
+
+- But for our application this observable needs to be cast into the format that represents an array of employees.
+- for that lets create employee interface first under the app folder.
+
+##### / employees.ts
+```
+export interface IEmployee{
+    id : number,
+    name : string,
+    age: number
+}
+```
+- Now add type to get request and getEmployee() method will return an observable of type employee array.
+##### / employees.service.ts
+```
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { IEmployee } from './employee';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  private _url: string = "/assets/data/employees.json";
+  
+  constructor(private http: HttpClient) { }
+
+  getEmployees() : Observable<IEmployee[]>{
+    return this.http.get<IEmployee[]>(this._url);
+  }
+}
+
+```
+
+#### 3) Subscribe observable to emplist and empdetail and Assign to employee array to a local variable
+
+- Go to the employee-list.component and `ngOnInit()` method we are going to call getEmployee() method and subscribe to the observable.
+- The first aregument to the subscribe method is going to be a fat arrow function that assigns data received from the observable to local employees property. data arrive asynchronously from observable and we are assigning this data to local variable using fat arrow function.
+
+##### / employees-list.component.ts
+```
+ngOnInit(): void {
+    this._employeeService.getEmployees()
+        .subscribe(data => this.employees = data);
+  }
+```
+
+![image](https://user-images.githubusercontent.com/35020560/93710096-96e1c780-fb61-11ea-8460-fb69c5be89ad.png)
+
+
+
