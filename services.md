@@ -516,3 +516,117 @@ export class EmployeeListComponent implements OnInit {
 - If you want to inject one service into anathor service then `@Injectable()` decorator must.
 - If you remove `@Injectable()` decorator from the service it become simple typescript class. Its mendatory because angular consider it might have dependencies in future.
 
+
+# HTTP Error Handling
+
+- We know that an observable is return an result of http call, So that to handle exceptions on an observable we make use of catch operator.
+
+#### /employee.service.ts
+```
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { IEmployee } from './employee';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  private _url: string = "/assets/data/employees.json";
+  
+  constructor(private http: HttpClient) { }
+
+  getEmployees() : Observable<IEmployee[]>{
+    return this.http.get<IEmployee[]>(this._url)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    // Return an observable with a user-facing error message.
+    return throwError(
+      error.message || 'Something bad happened; please try again later.');
+  }
+
+}
+```
+#### /employee-list.component.ts
+```
+import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../employee.service';
+
+@Component({
+  selector: 'employee-list',
+  template: `
+    <h2>Employee List</h2>
+    <h2>{{errorMsg}}</h2>
+    
+    <ul *ngFor="let emp of employees">
+      <li>{{emp.name}}</li>
+    </ul>
+  `,
+  styles: [`
+  
+  `]
+})
+export class EmployeeListComponent implements OnInit {
+
+  public employees =[];
+  public errorMsg;
+
+  constructor(private _employeeService : EmployeeService) { }
+ // Now we have a local variable that gives us instance of EmployeeService
+ // Need to make use of EmployeeService instance and fetch the data. as bellow
+// ngOnInit() gets called when component has been initialized
+ngOnInit(): void {
+  this._employeeService.getEmployees()
+      .subscribe(data => this.employees = data,
+                 error => this.errorMsg = error);
+}
+
+}
+
+```
+
+#### /employee-detail.component.ts
+```
+import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../employee.service';
+
+@Component({
+  selector: 'employee-detail',
+  template: `
+      <h2>Employee Detail</h2>
+      <h2>{{errorMsg}}</h2>
+      <ul *ngFor="let emp of employees">
+        <li>{{emp.id}}. {{emp.name}} - {{emp.age}}</li>
+      </ul>
+  `,
+  styleUrls: ['./employee-detail.component.css']
+})
+export class EmployeeDetailComponent implements OnInit {
+
+  public employees =[];
+  public errorMsg;
+
+  constructor(private _employeeService : EmployeeService) { }
+ // Now we have a local variable that gives us instance of EmployeeService
+ // Need to make use of EmployeeService instance and fetch the data. as bellow
+// ngOnInit() gets called when component has been initialized
+ngOnInit(): void {
+  this._employeeService.getEmployees()
+      .subscribe(data => this.employees = data,
+                 error => this.errorMsg = error);
+}
+
+}
+
+```
+
+- To get error just change data url `private _url: string = "/assets/data/employees1.json";` and see error message on browser.
+
+![image](https://user-images.githubusercontent.com/35020560/95650662-85596300-0b02-11eb-9fa5-6034a6122828.png)
+
