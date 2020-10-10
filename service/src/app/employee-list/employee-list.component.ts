@@ -5,6 +5,8 @@ import { EmployeeService } from '../employee.service';
   selector: 'employee-list',
   template: `
     <h2>Employee List</h2>
+    <h2>{{errorMsg}}</h2>
+    
     <ul *ngFor="let emp of employees">
       <li>{{emp.name}}</li>
     </ul>
@@ -23,7 +25,7 @@ export class EmployeeListComponent implements OnInit {
   ];*/
 
   public employees =[];
-
+  public errorMsg;
 
   constructor(private _employeeService : EmployeeService) { }
  // Now we have a local variable that gives us instance of EmployeeService
@@ -31,7 +33,8 @@ export class EmployeeListComponent implements OnInit {
 // ngOnInit() gets called when component has been initialized
 ngOnInit(): void {
   this._employeeService.getEmployees()
-      .subscribe(data => this.employees = data);
+      .subscribe(data => this.employees = data,
+                 error => this.errorMsg = error);
 }
 
 }

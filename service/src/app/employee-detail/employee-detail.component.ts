@@ -5,6 +5,7 @@ import { EmployeeService } from '../employee.service';
   selector: 'employee-detail',
   template: `
       <h2>Employee Detail</h2>
+      <h2>{{errorMsg}}</h2>
       <ul *ngFor="let emp of employees">
         <li>{{emp.id}}. {{emp.name}} - {{emp.age}}</li>
       </ul>
@@ -21,14 +22,16 @@ export class EmployeeDetailComponent implements OnInit {
   ];*/
 
   public employees =[];
+  public errorMsg;
 
   constructor(private _employeeService : EmployeeService) { }
  // Now we have a local variable that gives us instance of EmployeeService
  // Need to make use of EmployeeService instance and fetch the data. as bellow
 // ngOnInit() gets called when component has been initialized
-  ngOnInit(): void {
-    this._employeeService.getEmployees()
-        .subscribe(data => this.employees = data);
-  }
+ngOnInit(): void {
+  this._employeeService.getEmployees()
+      .subscribe(data => this.employees = data,
+                 error => this.errorMsg = error);
+}
 
 }
