@@ -56,6 +56,7 @@ imports: [
 ##### 2) Generate DepartmentList and EmployeeList components
 
 >`$ ng g c department-list -it -is`
+
 >`$ ng g c employee-list -it -is`
   - g : Generate
   - c : Component
@@ -148,3 +149,23 @@ import { AppRoutingModule , routingComponents} from './app-routing.module';
   ],
 ```
 
+### Q) How are we specify where this component display?
+- ans is `<router-outlet></router-outlet>` tag in `app.component.html`.
+- `<router-outlet></router-outlet>` this directive available from the router package and it marks where the router displays a view.
+
+#### /app.component.html
+```
+
+<div class="content" role="main">
+    <h2>Routing and Navigation</h2>
+</div>
+
+<router-outlet></router-outlet>
+<!--router view goes here-->
+```
+
+![image](https://user-images.githubusercontent.com/35020560/95674726-cb302d00-0bcf-11eb-8f1f-e8bb862361b3.png)
+
+![image](https://user-images.githubusercontent.com/35020560/95674798-3c6fe000-0bd0-11eb-928a-1e4929bcf77e.png)
+
+![image](https://user-images.githubusercontent.com/35020560/95674827-590c1800-0bd0-11eb-9f1a-d381c52d88d6.png)
