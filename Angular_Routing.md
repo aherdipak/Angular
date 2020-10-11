@@ -169,3 +169,31 @@ import { AppRoutingModule , routingComponents} from './app-routing.module';
 ![image](https://user-images.githubusercontent.com/35020560/95674798-3c6fe000-0bd0-11eb-928a-1e4929bcf77e.png)
 
 ![image](https://user-images.githubusercontent.com/35020560/95674827-590c1800-0bd0-11eb-9f1a-d381c52d88d6.png)
+
+- Routing is working fine, Lets add buttons/links to navigate url
+
+#### /app.component.html
+```
+<div style="text-align:center">
+    <h2>Routing and Navigation</h2>
+</div>
+<nav>
+  <a routerLink='/department' routerLinkActive="active">Department</a>
+  <a routerLink='/employee' routerLinkActive="active">Employee</a>
+</nav>
+
+<router-outlet></router-outlet>
+<!--router view goes here-->
+```
+- To make routing passible with this ancher tags we use two special directives from the router package.
+1) `routerLink=""` Which specifies the path which we want to navigate.
+2) `routerLinkActive=""` this directive lets you specify one or more css classes.
+
+![image](https://user-images.githubusercontent.com/35020560/95675528-92935200-0bd5-11eb-94f2-c257bf1b6d93.png)
+
+- When you click on Department list you can see that department list component message displayed and url changes to department and active clss is applied to anchar tag.
+
+![image](https://user-images.githubusercontent.com/35020560/95675564-c8d0d180-0bd5-11eb-8082-299793ea5bbe.png)
+
+
+![image](https://user-images.githubusercontent.com/35020560/95675570-ddad6500-0bd5-11eb-862d-d7f21124b661.png)
